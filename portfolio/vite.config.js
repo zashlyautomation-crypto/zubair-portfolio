@@ -14,7 +14,7 @@ export default defineConfig({
     compression({ algorithm: 'brotliCompress', ext: '.br' }),
     compression({ algorithm: 'gzip', ext: '.gz' }),
   ],
-  base: '/zubair-portfolio/',
+  base: './',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
