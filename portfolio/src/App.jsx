@@ -13,12 +13,9 @@ import FooterSection from '@/sections/FooterSection'
 import { ContactPage } from '@/pages/ContactPage'
 import { useState, useCallback, useMemo } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { initBarba } from '@/transitions/barba'
 import { SiteIntro } from '@/components/SiteIntro'
 import { ToastReminder } from '@/components/ToastReminder'
 import { INTRO_CONFIG } from '@/constants'
-
-
 
 import '@/styles/global.css'
 import '@/styles/typography.css'
@@ -26,7 +23,6 @@ import '@/styles/utilities.css'
 
 /**
  * initWebGPU — silent WebGPU detection with CSS/2D Canvas fallback.
- * Zero console output under all device conditions.
  */
 const initWebGPU = async () => {
   if (!navigator.gpu) {
@@ -39,18 +35,12 @@ const initWebGPU = async () => {
       initCanvasFallback()
       return
     }
-    // WebGPU is available — mark it for the GPU layer
     document.documentElement.dataset.webgpu = 'true'
   } catch {
-    // Caught silently — fallback engaged
     initCanvasFallback()
   }
 }
 
-/**
- * initCanvasFallback — renders CSS + 2D Canvas equivalent
- * when WebGPU is unavailable. Visually equivalent, zero crashes.
- */
 const initCanvasFallback = () => {
   document.documentElement.dataset.webgpu = 'false'
 }
@@ -66,10 +56,8 @@ const App = () => {
       touchMultiplier: 2,
     })
 
-    // Expose on window so Navbar and other components can subscribe
     window.__lenis = lenis
 
-    // RAF loop
     let rafId
     const raf = (time) => {
       lenis.raf(time)
@@ -77,11 +65,7 @@ const App = () => {
     }
     rafId = requestAnimationFrame(raf)
 
-    // ── Initialize WebGPU (silent) ──────────────────────────
     initWebGPU()
-
-    // ── Initialize Barba (with wrapper check) ───────────────
-    initBarba()
 
     return () => {
       cancelAnimationFrame(rafId)
@@ -103,43 +87,37 @@ const App = () => {
     setShowIntro(false)
   }, [])
 
-
   return (
     <>
       {showIntro && <SiteIntro onComplete={handleIntroComplete} />}
       
-      {/* Persistent across all pages */}
       <CustomCursor />
       <ConnectButton />
       <div className="page-transition-overlay" aria-hidden="true" />
 
-      {/* Page content */}
-      <main id="barba-wrapper">
-        <div data-barba="wrapper">
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <div data-barba="container" data-barba-namespace="home">
-                  <HeroSection />
-                  <WhyChooseMeSection />
-                  <ScrollStorySection />
-                  <TechStackSection />
-                  <VideoShowcaseSection />
-                  <AboutSection />
-                  <ProjectsSection />
-                  <FooterSection />
-                </div>
-              } 
-            />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </div>
+      <main className="app-main">
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <div className="home-container">
+                <HeroSection />
+                <WhyChooseMeSection />
+                <ScrollStorySection />
+                <TechStackSection />
+                <VideoShowcaseSection />
+                <AboutSection />
+                <ProjectsSection />
+                <FooterSection />
+              </div>
+            } 
+          />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
 
       <ToastReminder />
     </>
-
   )
 }
 
