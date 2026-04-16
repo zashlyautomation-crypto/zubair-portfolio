@@ -198,7 +198,7 @@ export const ContactPage = () => {
   const navigate = useNavigate()
 
   const handleBack = () => {
-    navigate('/zubair-portfolio/')
+    navigate('/')
   }
 
   return (
