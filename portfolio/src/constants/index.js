@@ -292,16 +292,16 @@ export const INTRO_CONFIG = {
   brandName:       'ZASHLY',
   tagline:         'Built with design, not templates.',
   sessionKey:      'zashly_intro_seen',
-  totalDuration:   3800,    // ms — total intro duration before homepage revealed
-  // Phase timings (ms from start)
+  totalDuration:   2900,    // ms — total intro duration before homepage revealed
+  // Phase timings (ms from start) — Shortened for snappiness
   phases: {
-    logoAppear:    200,     // logo mark fades in
-    nameReveal:    700,     // brand name letters reveal
-    taglineIn:     1600,    // tagline slides in
-    holdDuration:  2400,    // moment of stillness at peak
-    splitStart:    2800,    // curtain split begins
-    splitComplete: 3600,    // split fully open
-    unmount:       3900,    // component removed from DOM
+    logoAppear:    100,     // logo mark fades in
+    nameReveal:    400,     // brand name letters reveal
+    taglineIn:     1000,    // tagline slides in
+    holdDuration:  1800,    // moment of stillness at peak
+    splitStart:    2100,    // curtain split begins
+    splitComplete: 2800,    // split fully open
+    unmount:       3000,    // component removed from DOM
   },
 }
 

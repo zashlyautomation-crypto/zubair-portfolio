@@ -7,17 +7,17 @@ import '@/styles/intro.css'
 
 const LETTERS = INTRO_CONFIG.brandName.split('')
 
-// ── Individual letter — polished reveal with subtle blur ───────────────────
+// ── Individual letter — hardware accelerated reveal ───────────────────────
 const IntroLetter = ({ char, delay }) => (
   <span className="intro-letter-mask">
     <motion.span
       className="intro-letter"
-      initial={{ y: '105%', opacity: 0, filter: 'blur(5px)' }}
-      animate={{ y: '0%',   opacity: 1, filter: 'blur(0px)' }}
+      initial={{ y: '105%', opacity: 0 }}
+      animate={{ y: '0%',   opacity: 1 }}
       transition={{
-        duration: 0.8,
+        duration: 0.6,
         delay,
-        ease: [0.215, 0.61, 0.355, 1], // expo out feel
+        ease: [0.33, 1, 0.68, 1], // snappy quint out
       }}
     >
       {char}
@@ -52,15 +52,15 @@ export const SiteIntro = ({ onComplete }) => {
       // 2. Seam glow reveal right before split
       tl.to(seamRef.current, {
         scaleX: 1,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power2.inOut',
-        delay: p.splitStart / 1000 - 0.4
+        delay: p.splitStart / 1000 - 0.3
       })
 
       // 3. The Split
       tl.to([topRef.current, bottomRef.current], {
         y: (i) => i === 0 ? '-100%' : '100%',
-        duration: 1.1,
+        duration: 0.9,
         ease: 'expo.inOut',
         onStart: () => setPhase('split')
       }, p.splitStart / 1000)
@@ -68,9 +68,9 @@ export const SiteIntro = ({ onComplete }) => {
       // 4. Fade out seam and grain during split
       tl.to([seamRef.current, grainRef.current], {
         opacity: 0,
-        duration: 0.4,
+        duration: 0.3,
         ease: 'none'
-      }, p.splitStart / 1000 + 0.2)
+      }, p.splitStart / 1000 + 0.1)
 
       // 5. Cleanup and complete
       tl.call(() => onComplete?.(), null, p.splitComplete / 1000)
@@ -134,9 +134,9 @@ export const SiteIntro = ({ onComplete }) => {
             {(phase === 'tagline' || phase === 'hold' || phase === 'split') && (
               <motion.div
                 className="intro-tagline-wrapper"
-                initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, y: 0,  filter: 'blur(0px)' }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 <motion.div
                   className="intro-rule"
