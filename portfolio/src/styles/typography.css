@@ -1,0 +1,22 @@
+/* ─── Font Face Declarations ─────────────────────────────────
+   All Google Fonts are loaded via <link> in index.html.
+   This file is reserved for self-hosted @font-face declarations
+   when custom local fonts are added to src/assets/fonts/.
+─────────────────────────────────────────────────────────────── */
+
+/* Type Scale — CSS custom properties */
+:root {
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Type scale */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 26px;
+}

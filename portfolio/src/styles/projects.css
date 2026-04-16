@@ -1,0 +1,300 @@
+/* projects.css */
+
+.ps-section {
+  position:   relative;
+  width:      100%;
+  padding:    clamp(60px, 9vh, 110px) clamp(16px, 2vw, 24px) clamp(60px, 9vh, 110px);
+  margin-top: clamp(80px, 12vh, 160px);
+  margin-bottom: clamp(60px, 10vh, 140px);
+  background: transparent;
+  overflow:   visible;
+  box-sizing: border-box;
+}
+
+/* Grid wrapper */
+.ps-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:    auto auto;
+  gap:                   16px;
+  width:                 100%;
+  max-width:             1440px;
+  margin:                0 auto;
+}
+
+/* Card 1 — full width — spans both columns */
+.ps-card--full {
+  grid-column: 1 / -1;
+  grid-row:    1;
+  display:     flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding:     clamp(24px, 4vw, 48px);
+  background:  radial-gradient(circle at 85% 80%, rgba(247, 147, 30, 0.12) 0%, transparent 50%), #0c0c0c !important;
+  min-height:  clamp(320px, 45vh, 480px);
+  gap:         32px;
+}
+
+/* Custom layout elements for manual card */
+.ps-card__thumb-wrap {
+  flex:          1;
+  max-width:     52%;
+  aspect-ratio:  1.6 / 1;
+  border-radius: 18px;
+  overflow:      hidden;
+  box-shadow:    0 24px 60px rgba(0, 0, 0, 0.6);
+  border:        1px solid rgba(255, 255, 255, 0.08);
+  position:      relative;
+}
+
+.ps-card__details {
+  flex:          0.9;
+  position:      relative;
+  z-index:       2;
+  display:       flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ps-card__num-bg {
+  position:    absolute;
+  top:         -15%;
+  left:        -5%;
+  font-size:   220px;
+  font-weight: 700;
+  line-height: 1;
+  color:       rgba(255, 255, 255, 0.03);
+  z-index:     -1;
+  font-family: 'Syne', sans-serif;
+  pointer-events: none;
+}
+
+.ps-card__header {
+  margin-bottom: 32px;
+}
+
+.ps-card__title {
+  font-size:   clamp(32px, 4.5vw, 64px);
+  font-weight: 700;
+  color:       #ffffff;
+  line-height: 0.95;
+  margin:      0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.ps-card__subtitle {
+  font-size:   clamp(20px, 2.8vw, 42px);
+  font-family: 'Great Vibes', cursive;
+  color:       rgba(255, 255, 255, 0.9);
+  margin:      0;
+  transform:   translateY(-5px);
+}
+
+.ps-card__meta {
+  display:     flex;
+  align-items: center;
+  gap:         16px;
+  margin-top:  auto;
+}
+
+.ps-card__logos {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  margin-bottom: 24px;
+}
+
+.ps-card__logo-icon {
+  width:       28px;
+  height:      28px;
+  opacity:     0.7;
+}
+
+.ps-card__cta {
+  display:         inline-flex;
+  align-items:     center;
+  padding:         14px 28px;
+  background:      #ffffff;
+  color:           #000000;
+  border-radius:   100px;
+  font-weight:     600;
+  font-size:       14px;
+  text-decoration: none;
+  width:           fit-content;
+  transition:      all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow:      0 10px 20px rgba(0,0,0,0.2);
+}
+
+.ps-card__cta:hover {
+  transform:  scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  background: #f7931e;
+  color: #fff;
+}
+
+/* Cards 2 and 3 — half width each — row 2 */
+
+/* Cards 2 and 3 — half width each — row 2 */
+.ps-card--half {
+  grid-column: span 1;
+  grid-row:    2;
+  position:     relative;
+  aspect-ratio: 16 / 9.1;    /* Using precisely what's needed for equal height, starting 16/9 */
+}
+
+/* When aspect-ratio is set, image must fill absolutely */
+.ps-card--half .ps-card__img {
+  position:   absolute;
+  inset:      0;
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+/* Base card container */
+.ps-card {
+  position:      relative;
+  border-radius: 24px;
+  overflow:      hidden;
+  display:       block;
+  width:         100%;
+  border:        1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:    0 4px 32px rgba(0, 0, 0, 0.40);
+  will-change:   transform, box-shadow;
+
+  /* Smooth hover transition */
+  transition:
+    transform    0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow   0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.30s ease;
+}
+
+/* Hover state — card lifts and glows */
+.ps-card:hover {
+  transform:    translateY(-4px) scale(1.010);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.55),
+    0 0   80px rgba(190, 80, 20, 0.07);
+}
+
+/* Image inside card */
+.ps-card__img {
+  display:         block;
+  width:           100%;
+  height:          auto;
+  object-fit:      cover;
+  object-position: center center;
+  border-radius:   inherit;
+  user-select:     none;
+  pointer-events:  none;
+  -webkit-user-drag: none;
+  will-change:     transform;
+  transition:      transform 0.50s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Image zooms in slightly on card hover */
+.ps-card:hover .ps-card__img {
+  transform: scale(1.022);
+}
+
+@media (max-width: 1023px) {
+  .ps-section {
+    padding: clamp(48px, 7vh, 80px) 16px;
+  }
+  .ps-grid {
+    gap: 14px;
+  }
+  .ps-card {
+    border-radius: 20px;
+  }
+  .ps-card--half {
+    aspect-ratio: 16 / 10;   /* cinematic footprint on tablet */
+  }
+}
+
+@media (max-width: 767px) {
+  .ps-section {
+    padding: clamp(40px, 6vh, 72px) 12px clamp(48px, 7vh, 80px);
+  }
+
+  /* Single column — all cards stack vertically */
+  .ps-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows:    auto auto auto;
+    gap:                   12px;
+  }
+
+  /* Card 1 — full width, naturally wide — keep auto height */
+  .ps-card--full {
+    grid-column: 1;
+    grid-row:    1;
+    flex-direction: column;
+    padding: 24px;
+    align-items: flex-start;
+    aspect-ratio: auto;
+    min-height: auto;
+  }
+
+  .ps-card__thumb-wrap {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .ps-card__details {
+    width: 100%;
+  }
+
+  .ps-card__num-bg {
+    font-size: 140px;
+    top: -10px;
+  }
+
+  .ps-card__title {
+    font-size: 34px;
+  }
+
+  .ps-card__subtitle {
+    font-size: 24px;
+  }
+
+  /* Cards 2 and 3 — full width stacked */
+
+  /* Cards 2 and 3 — full width stacked */
+  .ps-card--half {
+    grid-column: 1;
+    grid-row:    auto;
+    aspect-ratio: auto; /* let image dictate native dimensions perfectly */
+    position:     relative;
+    display:      block;
+    overflow:     hidden;
+  }
+
+  /* Ensure natural aspect ratio layout via direct relative sizing */
+  .ps-card--half .ps-card__img {
+    position:   relative;
+    inset:      auto;
+    width:      100%;
+    height:     auto;
+    display:    block;
+    object-fit: cover;
+  }
+
+  /* All cards */
+  .ps-card {
+    border-radius: 18px;
+  }
+
+  /* Disable hover effects on touch — no hover on mobile */
+  @media (hover: none) {
+    .ps-card:hover {
+      transform:    none;
+      box-shadow:   0 4px 32px rgba(0, 0, 0, 0.40);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    .ps-card:hover .ps-card__img {
+      transform: none;
+    }
+  }
+}

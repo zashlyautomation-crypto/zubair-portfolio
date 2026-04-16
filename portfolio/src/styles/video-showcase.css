@@ -1,0 +1,142 @@
+/* video-showcase.css */
+
+.vs-section {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #000000;
+  overflow: hidden;
+}
+
+.vs-panel {
+  position: relative;
+  width: 50%;
+  height: 60vh;
+  min-height: 60vh;
+  overflow: hidden;
+  cursor: none;
+  flex-shrink: 0;
+}
+
+.vs-panel--left {
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.vs-video {
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.vs-panel:hover .vs-video {
+  transform: scale(1.02);
+}
+
+.vs-label {
+  position:       absolute;
+  bottom:         1.5rem;
+  left:           1.5rem;
+  z-index:        2;
+  font-family:    'Inter', sans-serif;
+  font-size:      11px;
+  font-weight:    500;
+  color:          #ffffff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.vs-dot {
+  position:      absolute;
+  top:           1.5rem;
+  right:         1.5rem;
+  width:         10px;
+  height:        10px;
+  border-radius: 50%;
+  background:    #f7931e;
+  z-index:       2;
+  pointer-events: none;
+}
+
+/* Modal Styles */
+.vm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.94);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm-video-container {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  width: 100%;
+}
+
+.vm-close-btn {
+  position:        absolute;
+  top:             -48px;
+  right:           0;
+  width:           36px;
+  height:          36px;
+  border-radius:   50%;
+  background:      rgba(255,255,255,0.1);
+  border:          1px solid rgba(255,255,255,0.2);
+  color:           #ffffff;
+  font-size:       14px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  cursor:          pointer;
+  transition:      background 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.vm-close-btn:hover {
+  background:  rgba(255,255,255,0.2);
+  transform:   scale(1.1);
+}
+
+/* Responsive Implementation */
+@media (max-width: 1023px) {
+  .vs-section {
+    flex-direction: row;
+  }
+  .vs-panel {
+    width: 50%;
+    height: 60vh;
+  }
+  .vs-label { font-size: 10px; bottom: 1rem; left: 1rem; }
+  .vs-dot   { top: 1rem; right: 1rem; }
+}
+
+@media (max-width: 767px) {
+  .vs-section {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+  }
+  .vs-panel {
+    width:        100%;
+    height:       60vh;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .vs-panel--right {
+    border-bottom: none;
+  }
+  .vs-label { font-size: 10px; bottom: 0.875rem; left: 0.875rem; }
+  .vs-dot   { top: 0.875rem; right: 0.875rem; width: 8px; height: 8px; }
+
+  .vm-video-container {
+    max-width:  96vw;
+    max-height: 70vh;
+  }
+  .vm-close-btn { top: -44px; }
+}

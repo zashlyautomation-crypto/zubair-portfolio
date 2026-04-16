@@ -1,0 +1,196 @@
+.story-loader {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: all;
+}
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.loader-bar-track {
+  width: 220px;
+  height: 2px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%;
+  background: #f7931e;
+  border-radius: 2px;
+  transform-origin: left;
+}
+.loader-percent {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.12em;
+}
+
+/* Typography styles */
+.st-line          { display: block; color: #ffffff; line-height: 0.92; }
+.st-sans          { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-style: normal; }
+.st-script        { font-family: 'Great Vibes', cursive;  font-weight: 400; font-style: italic; }
+.st-xl            { font-size: clamp(56px, 9vw, 128px); letter-spacing: 0.01em; }
+.st-lg            { font-size: clamp(32px, 4.5vw, 68px); }
+.st-lg-script     { font-size: clamp(40px, 5.5vw, 82px); }
+.st-xxl           { font-size: clamp(60px, 10vw, 148px); letter-spacing: -0.01em; }
+.st-xxl-script    { font-size: clamp(52px, 8vw,  120px); }
+
+/* Float cards */
+.float-card {
+  position: fixed;
+  background: rgba(15, 15, 24, 0.90);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-size: clamp(8px, 0.9vw, 11px);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+  pointer-events: none;
+  z-index: 5;
+  white-space: pre;
+  max-width: clamp(160px, 18vw, 260px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  will-change: transform, opacity;
+}
+.float-card .code-keyword  { color: #c678dd; }
+.float-card .code-fn       { color: #61afef; }
+.float-card .code-string   { color: #98c379; }
+.float-card .code-comment  { color: rgba(255,255,255,0.35); }
+
+/* Tech icon badges */
+.tech-badge {
+  position: fixed;
+  width: clamp(42px, 4.5vw, 58px);
+  height: clamp(42px, 4.5vw, 58px);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+  will-change: transform, opacity;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+}
+
+/* Story Progress Bar */
+.story-progress-bar {
+  position: fixed;
+  right: 1.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.spb-ring-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spb-percent {
+  position: relative;
+  z-index: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+.spb-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.spb-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  will-change: transform, background;
+}
+
+/* Tablet — 768px to 1023px */
+@media (max-width: 1023px) {
+  .st-xl         { font-size: clamp(44px, 7vw, 88px); }
+  .st-xxl        { font-size: clamp(48px, 8vw, 100px); }
+  .st-lg         { font-size: clamp(26px, 4vw, 54px); }
+  .st-lg-script  { font-size: clamp(32px, 5vw, 66px); }
+  .st-xxl-script { font-size: clamp(40px, 6.5vw, 90px); }
+  .float-card    { font-size: 8px; max-width: 160px; padding: 10px 14px; }
+  .tech-badge    { width: 44px; height: 44px; }
+  .story-progress-bar { right: 1rem; }
+}
+
+/* Mobile — below 768px */
+@media (max-width: 767px) {
+  /* Beat 2 top — huge centered text at very top */
+  .beat-2-top {
+    top: 12% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    width: 92vw;
+  }
+  .beat-2-top .st-xxl { font-size: clamp(44px, 13vw, 72px); white-space: normal; text-align: center; }
+
+  /* Beat 1 left — mid-screen left */
+  .beat-1-left {
+    top: 38% !important;
+    left: 4vw !important;
+    transform: none !important;
+  }
+  .beat-1-left .st-xl { font-size: clamp(36px, 10vw, 58px); }
+
+  /* Beat 1 right — reposition to bottom left on mobile */
+  .beat-1-right {
+    right: auto !important;
+    left: 4vw !important;
+    bottom: 8% !important;
+    text-align: left !important;
+  }
+  .beat-1-right .st-lg       { font-size: clamp(24px, 7vw, 40px); text-align: left; }
+  .beat-1-right .st-lg-script { font-size: clamp(30px, 9vw, 50px); text-align: left; }
+
+  /* Beat 2 bottom — centered bottom */
+  .beat-2-bottom {
+    bottom: 4% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    width: 92vw;
+  }
+  .beat-2-bottom .st-lg       { font-size: clamp(26px, 8vw, 44px); white-space: normal; text-align: center; }
+  .beat-2-bottom .st-xxl-script { font-size: clamp(34px, 10vw, 56px); white-space: normal; text-align: center; }
+
+  /* Float elements — smaller and repositioned */
+  .float-card    { font-size: 7.5px; max-width: 130px; padding: 8px 10px; }
+  .tech-badge    { width: 36px; height: 36px; border-radius: 10px; font-size: 14px; }
+
+  /* Sidebar */
+  .story-progress-bar { right: 0.6rem; gap: 8px; }
+  .spb-ring-wrapper   { width: 34px; height: 34px; }
+  .spb-percent        { font-size: 7.5px; }
+  .spb-dot            { width: 5px; height: 5px; }
+}

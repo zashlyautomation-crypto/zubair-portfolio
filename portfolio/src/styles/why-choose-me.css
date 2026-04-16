@@ -1,0 +1,64 @@
+.why-choose-me-container {
+  /* Height defines how long the section remains sticky. 
+     150vh means it sticks once it hits the top and stays there for half a viewport of scrolling. */
+  height: 180vh;
+  background: #050505;
+  position: relative;
+  z-index: 15;
+}
+
+.why-choose-me-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wcm-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform, opacity;
+}
+
+.wcm-heading {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  margin: 0;
+}
+
+.wcm-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 10vw, 150px);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.wcm-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(70px, 11vw, 160px);
+  color: #f7931e;
+  margin-top: -0.2em;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .wcm-text { font-size: clamp(50px, 9vw, 100px); }
+  .wcm-script { font-size: clamp(60px, 10vw, 110px); }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .why-choose-me-container {
+    height: 150vh;
+  }
+  .wcm-text { font-size: clamp(40px, 12vw, 80px); }
+  .wcm-script { font-size: clamp(50px, 14vw, 90px); }
+}

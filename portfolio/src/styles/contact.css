@@ -1,0 +1,600 @@
+/* contact.css */
+
+/* ── Page root ──────────────────────────────────────────────────── */
+.cp-page {
+  width:            100%;
+  min-height:       100vh;
+  background:       #0a0a0a;
+  display:          flex;
+  flex-direction:   column;
+  font-family:      'Inter', sans-serif;
+  box-sizing:       border-box;
+  position:         relative;
+}
+
+/* Desktop outer container — adds the border box seen in reference */
+.cp-inner {
+  margin:           clamp(16px, 2vw, 32px);
+  border:           1px solid rgba(255,255,255,0.18);
+  display:          flex;
+  flex-direction:   column;
+  flex:             1;
+  position:         relative;
+  min-height:       calc(100vh - clamp(32px, 4vw, 64px));
+}
+
+/* Back arrow — top-left inside the border */
+.cp-back {
+  position:         absolute;
+  top:              18px;
+  left:             18px;
+  z-index:          10;
+  background:       none;
+  border:           none;
+  color:            rgba(255,255,255,0.75);
+  font-size:        20px;
+  cursor:           pointer;
+  padding:          4px 8px;
+  line-height:      1;
+  transition:       color 0.2s ease;
+  font-family:      'Inter', sans-serif;
+}
+.cp-back:hover { color: #ffffff; }
+
+/* Hero block */
+.cp-hero {
+  padding:         clamp(48px, 8vh, 80px) clamp(32px, 4vw, 56px) clamp(36px, 6vh, 64px);
+  border-bottom:   1px solid rgba(255,255,255,0.18);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  box-sizing:      border-box;
+}
+
+.cp-hero-text {
+  font-family:    'Bebas Neue', sans-serif;
+  font-size:      clamp(90px, 15vw, 210px);
+  font-weight:    400;
+  color:          #e8e2d4;
+  line-height:    0.88;
+  letter-spacing: -0.01em;
+  text-align:     center;
+  margin:         0;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  width:          100%;
+}
+
+.cp-hero-line { display: block; }
+
+/* Info grid */
+.cp-info-grid {
+  display:       grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  width:         100%;
+  box-sizing:    border-box;
+}
+
+.cp-cell {
+  padding:       clamp(20px, 3vh, 32px) clamp(16px, 2vw, 28px);
+  border-right:  1px solid rgba(255,255,255,0.18);
+  display:       flex;
+  flex-direction: column;
+  gap:           12px;
+  box-sizing:    border-box;
+  min-height:    clamp(150px, 20vh, 200px);
+}
+.cp-cell:last-child { border-right: none; }
+
+/* Label row — label left, arrow right */
+.cp-cell-label-row {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  width:            100%;
+}
+
+/* Cell label — uppercase, small, grey */
+.cp-cell-label {
+  font-family:    'Inter', sans-serif;
+  font-size:      10px;
+  font-weight:    600;
+  color:          rgba(255,255,255,0.50);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Arrow — right side of label row */
+.cp-cell-arrow {
+  font-size:   13px;
+  color:       rgba(255,255,255,0.35);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Icon container */
+.cp-cell-icon {
+  color:      rgba(255,255,255,0.65);
+  line-height: 1;
+  display:    flex;
+  align-items: center;
+}
+
+/* Primary content text */
+.cp-cell-primary {
+  font-family: 'Inter', sans-serif;
+  font-size:   clamp(11px, 1.1vw, 13px);
+  font-weight: 400;
+  color:       rgba(255,255,255,0.82);
+  line-height: 1.45;
+  margin:      0;
+  word-break:  break-word;
+}
+
+/* Note/secondary text */
+.cp-cell-note {
+  font-family: 'Inter', sans-serif;
+  font-size:   10.5px;
+  font-weight: 400;
+  color:       rgba(255,255,255,0.38);
+  line-height: 1.5;
+  margin:      0;
+}
+
+/* Bottom row container */
+.cp-bottom {
+  display:   grid;
+  grid-template-columns: 38% 1fr;
+  flex:      1;
+  min-height: clamp(180px, 24vh, 260px);
+  box-sizing: border-box;
+}
+
+/* ── Left — Socials panel ──────────────────────────── */
+.cp-socials {
+  padding:        clamp(20px, 3vh, 32px) clamp(16px, 2vw, 28px);
+  border-right:   1px solid rgba(255,255,255,0.18);
+  display:        flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing:     border-box;
+}
+
+.cp-socials-label {
+  font-family:    'Inter', sans-serif;
+  font-size:      10px;
+  font-weight:    600;
+  color:          rgba(255,255,255,0.50);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display:        block;
+}
+
+.cp-socials-bottom { display: flex; flex-direction: column; gap: 5px; }
+
+.cp-social-date {
+  font-family:    'Inter', sans-serif;
+  font-size:      9.5px;
+  font-weight:    400;
+  color:          rgba(255,255,255,0.30);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display:        block;
+  margin-bottom:  8px;
+}
+
+.cp-social-link {
+  font-family:    'Inter', sans-serif;
+  font-size:      11.5px;
+  font-weight:    400;
+  color:          rgba(255,255,255,0.72);
+  line-height:    1.65;
+  display:        flex;
+  gap:            6px;
+}
+
+.cp-social-link-label {
+  font-weight:    700;
+  font-size:      10px;
+  color:          rgba(255,255,255,0.45);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width:      80px;
+}
+
+/* ── Right panel ─────────────────────────────────────── */
+.cp-right {
+  padding:        clamp(20px, 3vh, 32px) clamp(16px, 2vw, 28px);
+  display:        flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position:       relative;
+  box-sizing:     border-box;
+  overflow:       hidden;
+}
+
+.cp-right-top { display: flex; flex-direction: column; gap: 4px; }
+
+.cp-recently-label {
+  font-family:    'Inter', sans-serif;
+  font-size:      10px;
+  font-weight:    700;
+  color:          rgba(255,255,255,0.88);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display:        block;
+}
+
+.cp-portfolio-sublabel {
+  font-family:    'Inter', sans-serif;
+  font-size:      9.5px;
+  color:          rgba(255,255,255,0.38);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display:        block;
+  margin-top:     4px;
+}
+
+.cp-portfolio-url {
+  font-family:    'Inter', sans-serif;
+  font-size:      12px;
+  font-weight:    400;
+  color:          rgba(255,255,255,0.60);
+  text-decoration: none;
+  display:        block;
+  transition:     color 0.2s ease;
+}
+.cp-portfolio-url:hover { color: rgba(255,255,255,0.90); }
+
+/* Date — top right of right panel */
+.cp-credits-date {
+  position:       absolute;
+  top:            clamp(20px, 3vh, 32px);
+  right:          clamp(16px, 2vw, 28px);
+  font-family:    'Inter', sans-serif;
+  font-size:      9.5px;
+  color:          rgba(255,255,255,0.30);
+  letter-spacing: 0.06em;
+}
+
+/* Tagline — Great Vibes italic — bottom right */
+.cp-tagline {
+  font-family:    'Great Vibes', cursive;
+  font-size:      clamp(30px, 3.8vw, 58px);
+  font-weight:    400;
+  font-style:     italic;
+  color:          rgba(255,255,255,0.82);
+  line-height:    1.05;
+  text-align:     right;
+  margin:         0;
+  align-self:     flex-end;
+}
+
+/* Credits row — bottom of right panel */
+.cp-credits-row {
+  display:          flex;
+  justify-content:  space-between;
+  align-items:      flex-end;
+  margin-top:       auto;
+  gap:              8px;
+}
+
+.cp-credits-text {
+  font-family:    'Inter', sans-serif;
+  font-size:      8.5px;
+  font-weight:    600;
+  color:          rgba(255,255,255,0.28);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  line-height:    1.5;
+  white-space:    pre-line;
+}
+
+/* Contact Form Styles */
+
+/* Form overlay */
+.cf-overlay {
+  position:        fixed;
+  inset:           0;
+  background:      rgba(0,0,0,0.88);
+  z-index:         800;
+  display:         flex;
+  align-items:     flex-end;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  animation:       cfOverlayIn 0.25s ease;
+}
+
+@keyframes cfOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Slide-up drawer */
+.cf-drawer {
+  background:    #111111;
+  border:        1px solid rgba(255,255,255,0.14);
+  border-bottom: none;
+  border-radius: 24px 24px 0 0;
+  padding:       clamp(28px, 4vh, 48px) clamp(24px, 4vw, 48px);
+  width:         100%;
+  max-width:     580px;
+  max-height:    92vh;
+  overflow-y:    auto;
+  position:      relative;
+  animation:     cfDrawerUp 0.30s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-sizing:    border-box;
+}
+
+@keyframes cfDrawerUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Close button */
+.cf-close {
+  position:    absolute;
+  top:         16px;
+  right:       16px;
+  width:       32px;
+  height:      32px;
+  border-radius: 50%;
+  background:  rgba(255,255,255,0.08);
+  border:      1px solid rgba(255,255,255,0.14);
+  color:       rgba(255,255,255,0.65);
+  font-size:   13px;
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  cursor:      pointer;
+  transition:  background 0.2s ease, color 0.2s ease;
+}
+.cf-close:hover { background: rgba(255,255,255,0.15); color: #ffffff; }
+
+/* Form title */
+.cf-title {
+  font-family:    'Syne', sans-serif;
+  font-size:      20px;
+  font-weight:    700;
+  color:          #ffffff;
+  margin:         0 0 24px;
+}
+
+/* Field group */
+.cf-field {
+  display:        flex;
+  flex-direction: column;
+  gap:            6px;
+  margin-bottom:  16px;
+}
+
+/* Field label */
+.cf-label {
+  font-family:    'Inter', sans-serif;
+  font-size:      10px;
+  font-weight:    600;
+  color:          rgba(255,255,255,0.45);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Input and textarea */
+.cf-input {
+  background:   rgba(255,255,255,0.05);
+  border:       1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding:      12px 16px;
+  color:        #ffffff;
+  font-family:  'Inter', sans-serif;
+  font-size:    14px;
+  outline:      none;
+  transition:   border-color 0.2s ease, background 0.2s ease;
+  width:        100%;
+  box-sizing:   border-box;
+}
+.cf-input:focus        { border-color: rgba(255,255,255,0.40); background: rgba(255,255,255,0.07); }
+.cf-input::placeholder { color: rgba(255,255,255,0.22); }
+.cf-input:disabled     { opacity: 0.45; cursor: not-allowed; }
+.cf-textarea           { resize: vertical; min-height: 110px; }
+
+/* Error message */
+.cf-error {
+  font-family:  'Inter', sans-serif;
+  font-size:    12px;
+  color:        #ff6b6b;
+  background:   rgba(255,80,80,0.08);
+  border:       1px solid rgba(255,80,80,0.22);
+  border-radius: 8px;
+  padding:      10px 14px;
+  margin-bottom: 14px;
+  line-height:  1.5;
+}
+
+/* Submit button */
+.cf-submit-btn {
+  width:          100%;
+  padding:        14px 24px;
+  background:     #e8e2d4;
+  color:          #000000;
+  font-family:    'Inter', sans-serif;
+  font-size:      13px;
+  font-weight:    700;
+  letter-spacing: 0.06em;
+  border:         none;
+  border-radius:  10px;
+  cursor:         pointer;
+  transition:     background 0.2s ease, transform 0.15s ease;
+  margin-top:     4px;
+}
+.cf-submit-btn:hover    { background: #ffffff; }
+.cf-submit-btn:active   { transform: scale(0.99); }
+.cf-submit-btn:disabled {
+  background: rgba(255,255,255,0.18);
+  color:      rgba(255,255,255,0.35);
+  cursor:     not-allowed;
+}
+
+/* Success state */
+.cf-success {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  padding:        16px 0 8px;
+  gap:            10px;
+  text-align:     center;
+}
+.cf-success-icon {
+  width:           48px;
+  height:          48px;
+  border-radius:   50%;
+  background:      rgba(255,255,255,0.08);
+  border:          1px solid rgba(255,255,255,0.20);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       20px;
+  color:           rgba(255,255,255,0.80);
+  margin-bottom:   8px;
+}
+.cf-success-msg {
+  font-family: 'Syne', sans-serif;
+  font-size:   17px;
+  font-weight: 600;
+  color:       #ffffff;
+  margin:      0;
+}
+.cf-success-sub {
+  font-family: 'Inter', sans-serif;
+  font-size:   13px;
+  color:       rgba(255,255,255,0.50);
+  margin:      0 0 16px;
+}
+
+/* Responsive Implementation */
+
+@media (max-width: 1023px) {
+  .cp-inner          { margin: 12px; }
+  .cp-hero-text      { font-size: clamp(68px, 12vw, 130px); }
+  .cp-info-grid      { grid-template-columns: repeat(2, 1fr); }
+  .cp-cell:nth-child(1),
+  .cp-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .cp-cell:nth-child(2) { border-right: none; }
+  .cp-cell:nth-child(4) { border-right: none; }
+  .cp-bottom         { grid-template-columns: 1fr; }
+  .cp-socials        { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .cp-tagline        { font-size: clamp(24px, 4vw, 40px); }
+}
+
+@media (max-width: 767px) {
+  /* Outer shell — grid line texture effect, no border box */
+  .cp-page {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .cp-inner {
+    margin:  0;
+    border:  none;
+    min-height: 100vh;
+  }
+
+  /* Back arrow — top left, no border box offset */
+  .cp-back { top: 14px; left: 14px; }
+
+  /* Hero — single line, full bleed, left-aligned, massive */
+  .cp-hero {
+    padding:          56px 16px 24px;
+    border-bottom:    none;
+    justify-content:  flex-start;
+    align-items:      flex-start;
+  }
+
+  .cp-hero-text {
+    font-size:      clamp(56px, 16vw, 88px);
+    flex-direction: row;         /* ONE LINE — not stacked */
+    gap:            0.18em;
+    flex-wrap:      nowrap;
+    white-space:    nowrap;
+    text-align:     left;
+    align-items:    flex-start;
+    line-height:    1;
+  }
+
+  /* Info grid — single column, no dividers between cells */
+  .cp-info-grid {
+    grid-template-columns: 1fr;
+    border-bottom: none;
+  }
+
+  .cp-cell {
+    border-right:  none;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding:       20px 16px;
+    min-height:    auto;
+    gap:           8px;
+  }
+  .cp-cell:last-child { border-bottom: 1px solid rgba(255,255,255,0.10); }
+
+  /* Hide the label arrows on mobile — cleaner layout */
+  .cp-cell-arrow { display: none; }
+
+  /* Make label row left aligned */
+  .cp-cell-label { font-size: 9px; }
+
+  /* Primary text larger on mobile */
+  .cp-cell-primary { font-size: 15px; font-weight: 500; }
+
+  /* Bottom row — stacked */
+  .cp-bottom {
+    grid-template-columns: 1fr;
+    min-height:    auto;
+  }
+
+  .cp-socials {
+    border-right:  none;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding:       20px 16px;
+    gap:           12px;
+  }
+
+  .cp-right {
+    padding:    20px 16px;
+    min-height: 200px;
+  }
+
+  /* Hide date top-right on mobile — no absolute positioning needed */
+  .cp-credits-date {
+    position: relative;
+    top:      auto;
+    right:    auto;
+    display:  block;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* Tagline — centered, bottom of right panel */
+  .cp-tagline {
+    text-align:   center;
+    align-self:   center;
+    font-size:    clamp(26px, 8vw, 44px);
+    margin:       16px 0;
+  }
+
+  /* Credits — centered on mobile */
+  .cp-credits-row {
+    justify-content: center;
+    gap:             24px;
+  }
+
+  /* Right panel top — hide on mobile to match reference layout */
+  .cp-right-top { display: none; }
+
+  /* Form drawer full width on mobile */
+  .cf-drawer {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 24px 20px;
+  }
+}
