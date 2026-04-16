@@ -16,6 +16,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { SiteIntro } from '@/components/SiteIntro'
 import { ToastReminder } from '@/components/ToastReminder'
 import { INTRO_CONFIG } from '@/constants'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import '@/styles/global.css'
 import '@/styles/typography.css'

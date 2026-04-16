@@ -11,19 +11,19 @@ const getDraft = () => {
 }
 
 const saveDraft = (data) => {
-  try { localStorage.setItem(CONTACT_STORAGE_KEY, JSON.stringify(data)) } catch {}
+  try { localStorage.setItem(CONTACT_STORAGE_KEY, JSON.stringify(data)) } catch { }
 }
 
 const clearDraft = () => {
-  try { localStorage.removeItem(CONTACT_STORAGE_KEY) } catch {}
+  try { localStorage.removeItem(CONTACT_STORAGE_KEY) } catch { }
 }
 
 // ─── ContactForm component ────────────────────────────────────────────────
 const ContactForm = ({ isOpen, onClose }) => {
-  const [fields, setFields]   = useState(getDraft)
-  const [status, setStatus]   = useState('idle')
+  const [fields, setFields] = useState(getDraft)
+  const [status, setStatus] = useState('idle')
   // status: 'idle' | 'submitting' | 'success' | 'error'
-  const [errMsg, setErrMsg]   = useState('')
+  const [errMsg, setErrMsg] = useState('')
 
   // Persist draft on every keystroke
   const handleChange = (e) => {
@@ -59,21 +59,21 @@ const ContactForm = ({ isOpen, onClose }) => {
 
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
-        method:  'POST',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept':        'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
-          name:    fields.senderName.trim(),
-          email:   fields.senderEmail.trim(),
+          name: fields.senderName.trim(),
+          email: fields.senderEmail.trim(),
           message: fields.message.trim(),
         }),
       })
 
       // Always parse JSON — Formspree returns JSON for all responses
       let result = {}
-      try { result = await res.json() } catch {}
+      try { result = await res.json() } catch { }
 
       if (res.ok) {
         // Formspree returns { ok: true } on success
@@ -191,11 +191,14 @@ const ContactForm = ({ isOpen, onClose }) => {
   )
 }
 
+import { useNavigate } from 'react-router-dom'
+
 export const ContactPage = () => {
   const [formOpen, setFormOpen] = useState(false)
+  const navigate = useNavigate()
 
   const handleBack = () => {
-    window.history.back()
+    navigate('/zubair-portfolio/')
   }
 
   return (
@@ -238,11 +241,11 @@ export const ContactPage = () => {
             </div>
             <div className="cp-cell-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
               </svg>
             </div>
-            <a href={`mailto:${CONTACT_DATA.email}`} className="cp-cell-primary" style={{ textDecoration:'none', color:'inherit' }}>
+            <a href={`mailto:${CONTACT_DATA.email}`} className="cp-cell-primary" style={{ textDecoration: 'none', color: 'inherit' }}>
               {CONTACT_DATA.email}
             </a>
             <p className="cp-cell-note">{CONTACT_DATA.emailNote}</p>
@@ -256,11 +259,11 @@ export const ContactPage = () => {
             </div>
             <div className="cp-cell-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <rect x="3" y="3" width="4" height="4" rx="0.8"/><rect x="10" y="3" width="4" height="4" rx="0.8"/>
-                <rect x="17" y="3" width="4" height="4" rx="0.8"/><rect x="3" y="10" width="4" height="4" rx="0.8"/>
-                <rect x="10" y="10" width="4" height="4" rx="0.8"/><rect x="17" y="10" width="4" height="4" rx="0.8"/>
-                <rect x="3" y="17" width="4" height="4" rx="0.8"/><rect x="10" y="17" width="4" height="4" rx="0.8"/>
-                <rect x="17" y="17" width="4" height="4" rx="0.8"/>
+                <rect x="3" y="3" width="4" height="4" rx="0.8" /><rect x="10" y="3" width="4" height="4" rx="0.8" />
+                <rect x="17" y="3" width="4" height="4" rx="0.8" /><rect x="3" y="10" width="4" height="4" rx="0.8" />
+                <rect x="10" y="10" width="4" height="4" rx="0.8" /><rect x="17" y="10" width="4" height="4" rx="0.8" />
+                <rect x="3" y="17" width="4" height="4" rx="0.8" /><rect x="10" y="17" width="4" height="4" rx="0.8" />
+                <rect x="17" y="17" width="4" height="4" rx="0.8" />
               </svg>
             </div>
             <p className="cp-cell-primary">{CONTACT_DATA.phone}</p>
@@ -275,8 +278,8 @@ export const ContactPage = () => {
             </div>
             <div className="cp-cell-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
             </div>
             <p className="cp-cell-primary">{CONTACT_DATA.location}</p>
@@ -290,10 +293,10 @@ export const ContactPage = () => {
             <div className="cp-socials-bottom">
               <span className="cp-social-date">{CONTACT_DATA.socials.date}</span>
               {[
-                ['LINKEDIN:',  CONTACT_DATA.socials.linkedin],
+                ['LINKEDIN:', CONTACT_DATA.socials.linkedin],
                 ['INSTAGRAM:', CONTACT_DATA.socials.instagram],
-                ['BEHANCE:',   CONTACT_DATA.socials.behance],
-                ['GITHUB:',    CONTACT_DATA.socials.github],
+                ['BEHANCE:', CONTACT_DATA.socials.behance],
+                ['GITHUB:', CONTACT_DATA.socials.github],
               ].map(([label, value]) => (
                 <div key={label} className="cp-social-link">
                   <span className="cp-social-link-label">{label}</span>
