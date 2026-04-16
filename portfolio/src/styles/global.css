@@ -9,17 +9,13 @@
   padding: 0;
 }
 
-html,
-html * {
-  cursor: none !important;
-}
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
+  cursor: none !important;
   min-height: 100vh;
   background: #0a0a0a;
   color: #ffffff;

@@ -195,12 +195,11 @@ export const ContactPage = () => {
   const [formOpen, setFormOpen] = useState(false)
 
   const handleBack = () => {
-    if (window.barba) window.barba.go('/')
-    else window.history.back()
+    window.history.back()
   }
 
   return (
-    <div className="cp-page" data-barba="container" data-barba-namespace="contact">
+    <div className="cp-page">
       <div className="cp-inner">
 
         {/* Back arrow */}

@@ -82,9 +82,12 @@ const App = () => {
   const alreadySeen = typeof window !== 'undefined' && sessionStorage.getItem(INTRO_CONFIG.sessionKey) === 'true'
   const [showIntro, setShowIntro] = useState(isHomePage && !alreadySeen)
 
+  const [canRenderMain, setCanRenderMain] = useState(!showIntro)
+
   const handleIntroComplete = useCallback(() => {
     sessionStorage.setItem(INTRO_CONFIG.sessionKey, 'true')
     setShowIntro(false)
+    setCanRenderMain(true)
   }, [])
 
   return (
@@ -96,24 +99,35 @@ const App = () => {
       <div className="page-transition-overlay" aria-hidden="true" />
 
       <main className="app-main">
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <div className="home-container">
-                <HeroSection />
-                <WhyChooseMeSection />
-                <ScrollStorySection />
-                <TechStackSection />
-                <VideoShowcaseSection />
-                <AboutSection />
-                <ProjectsSection />
-                <FooterSection />
-              </div>
-            } 
-          />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+        <AnimatePresence>
+          {canRenderMain && (
+            <motion.div
+              key="main-content"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <Routes>
+                <Route 
+                  path="/" 
+                  element={
+                    <div className="home-container">
+                      <HeroSection />
+                      <WhyChooseMeSection />
+                      <ScrollStorySection />
+                      <TechStackSection />
+                      <VideoShowcaseSection />
+                      <AboutSection />
+                      <ProjectsSection />
+                      <FooterSection />
+                    </div>
+                  } 
+                />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
       <ToastReminder />
