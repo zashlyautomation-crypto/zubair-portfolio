@@ -294,8 +294,6 @@ export const ContactPage = () => {
               <span className="cp-social-date">{CONTACT_DATA.socials.date}</span>
               {[
                 ['LINKEDIN:', CONTACT_DATA.socials.linkedin],
-                ['INSTAGRAM:', CONTACT_DATA.socials.instagram],
-                ['BEHANCE:', CONTACT_DATA.socials.behance],
                 ['GITHUB:', CONTACT_DATA.socials.github],
               ].map(([label, value]) => (
                 <div key={label} className="cp-social-link">
