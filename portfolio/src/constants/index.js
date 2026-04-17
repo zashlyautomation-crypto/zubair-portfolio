@@ -221,61 +221,58 @@ export const ABOUT_MASK_DURATION = 0.45    // seconds — circle expand/contract
 
 export const PROJECTS_DATA = [
   {
-    id:     'card-01',
-    slot:    1,
+    id: 'card-01',
+    slot: 1,
     layout: 'full',    // spans full width — top card
-    alt:    'Project 01 — ZASH Futuristic & Interactive Design',
-    link:   'https://zashlyautomation-crypto.github.io/ZASH/',
+    alt: 'Project 01 — ZASH Futuristic & Interactive Design',
+    link: 'https://zashlyautomation-crypto.github.io/ZASH/',
   },
   {
-    id:     'card-02',
-    slot:    2,
+    id: 'card-02',
+    slot: 2,
     layout: 'half',    // left half of bottom row
-    alt:    'Project 02 — E-commerce Engine, Seamless Shopping',
-    link:   'https://zash-lab-001.vercel.app/',
+    alt: 'Project 02 — E-commerce Engine, Seamless Shopping',
+    link: 'https://zash-lab-001.vercel.app/',
   },
   {
-    id:     'card-03',
-    slot:    3,
+    id: 'card-03',
+    slot: 3,
     layout: 'half',    // right half of bottom row
-    alt:    'Project 03 — AI Portfolio, Intelligent Design',
-    link:   'https://zashlyautomation-crypto.github.io/lexom-web/#/lexom-web/',
+    alt: 'Project 03 — AI Portfolio, Intelligent Design',
+    link: 'https://zashlyautomation-crypto.github.io/lexom-web/#/lexom-web/',
   },
 ]
 
 // Layout constants — do not change these values
-export const PROJ_GAP_DESKTOP  = 16    // px — gap between all cards on desktop
-export const PROJ_GAP_MOBILE   = 12    // px — gap between all cards on mobile
-export const PROJ_RADIUS_DESK  = 24    // px — border radius on desktop
-export const PROJ_RADIUS_MOB   = 18    // px — border radius on mobile
-export const PROJ_PAD_DESKTOP  = '0 clamp(16px, 2vw, 24px)'
-export const PROJ_PAD_MOBILE   = '0 12px'
+export const PROJ_GAP_DESKTOP = 16    // px — gap between all cards on desktop
+export const PROJ_GAP_MOBILE = 12    // px — gap between all cards on mobile
+export const PROJ_RADIUS_DESK = 24    // px — border radius on desktop
+export const PROJ_RADIUS_MOB = 18    // px — border radius on mobile
+export const PROJ_PAD_DESKTOP = '0 clamp(16px, 2vw, 24px)'
+export const PROJ_PAD_MOBILE = '0 12px'
 
 // ─── CONTACT PAGE ────────────────────────────────────────────────────────────
 
 export const CONTACT_DATA = {
-  name:        'Shashish A',
-  email:       '15.shashish.09.1509@gmail.com',
-  emailNote:   'For professional correspondence, kindly reach out via email.',
-  phone:       '+91 99868 24100',
-  phoneNote:   'Call availability is minimal; email remains the primary channel.',
-  location:    'RV University Campus, RV Vidyanikethan Post, 8th Mile, Mysuru Road, Bengaluru – 560059',
+  name: 'Zabair',
+  email: 'zashlycraft@gmail.com',
+  emailNote: 'For professional correspondence, kindly reach out via email.',
+  phone: '+923294264963',
+  phoneNote: 'Call availability is minimal; email remains the primary channel.',
+  location: 'Faisalabad, Punjab, Pakistan',
   socials: {
-    date:      'JANUARY 2026',
-    linkedin:  '/shashish-a',
-    instagram: '@_shashish',
-    behance:   '/shashisha1',
-    github:    '/redbluvr69',
+    date: 'JANUARY 2026',
+    github: 'https://github.com/zashlyautomation-crypto/',
   },
   recentlyAdded: {
-    label:     'RECENTLY ADDED',
-    subLabel:  'PORTFOLIO:',
-    url:       'redbluvr69.github.io/portfolio',
+    label: 'RECENTLY ADDED',
+    subLabel: 'PORTFOLIO:',
+    url: 'https://zashlyautomation-crypto.github.io/zubair-portfolio/',
   },
   credits: {
-    date:      '27 02 2024',
-    left:      'DESIGNED BY\nSHASHISH',
-    right:     'PRECISION PROMPTING',
+    date: '27 02 2024',
+    left: 'DESIGNED BY\nZUBAIR',
+    right: 'PRECISION PROMPTING',
   },
   tagline: {
     line1: 'leveraging the',
@@ -283,40 +280,40 @@ export const CONTACT_DATA = {
   },
 }
 
-export const FORMSPREE_ENDPOINT  = 'https://formspree.io/f/mwvapzjy'
+export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mwvapzjy'
 export const CONTACT_STORAGE_KEY = 'zashly_contact_draft'
 
 // ─── SITE INTRO ───────────────────────────────────────────────────────────
 
 export const INTRO_CONFIG = {
-  brandName:       'ZASHLY',
-  tagline:         'Built with design, not templates.',
-  sessionKey:      'zashly_intro_seen',
-  totalDuration:   2900,    // ms — total intro duration before homepage revealed
+  brandName: 'ZASHLY',
+  tagline: 'Built with design, not templates.',
+  sessionKey: 'zashly_intro_seen',
+  totalDuration: 2900,    // ms — total intro duration before homepage revealed
   // Phase timings (ms from start) — Shortened for snappiness
   phases: {
-    logoAppear:    100,     // logo mark fades in
-    nameReveal:    400,     // brand name letters reveal
-    taglineIn:     1000,    // tagline slides in
-    holdDuration:  1800,    // moment of stillness at peak
-    splitStart:    2100,    // curtain split begins
+    logoAppear: 100,     // logo mark fades in
+    nameReveal: 400,     // brand name letters reveal
+    taglineIn: 1000,    // tagline slides in
+    holdDuration: 1800,    // moment of stillness at peak
+    splitStart: 2100,    // curtain split begins
     splitComplete: 2800,    // split fully open
-    unmount:       3000,    // component removed from DOM
+    unmount: 3000,    // component removed from DOM
   },
 }
 
 // ─── TOAST REMINDER ───────────────────────────────────────────────────────
 
 export const TOAST_CONFIG = {
-  storageKey:        'zashly_toast_state',
-  firstAppearDelay:  8000,    // ms — first toast appears 8s after page load
-  repeatInterval:    20000,   // ms — reappears every 20s if not visited contact
-  autoHideDuration:  10000,   // ms — toast disappears after 10s
-  dismissCooldown:   300000,  // ms — 5 minutes after manual dismiss
-  heading:           'Let\'s work together',
+  storageKey: 'zashly_toast_state',
+  firstAppearDelay: 8000,    // ms — first toast appears 8s after page load
+  repeatInterval: 20000,   // ms — reappears every 20s if not visited contact
+  autoHideDuration: 10000,   // ms — toast disappears after 10s
+  dismissCooldown: 300000,  // ms — 5 minutes after manual dismiss
+  heading: 'Let\'s work together',
 
-  body:              'Open to freelance & full-time opportunities.',
-  ctaLabel:          'Get in touch →',
+  body: 'Open to freelance & full-time opportunities.',
+  ctaLabel: 'Get in touch →',
 }
 
 
