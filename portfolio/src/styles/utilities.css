@@ -14,7 +14,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.visually-hidden {
+.visually-hidden,
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;

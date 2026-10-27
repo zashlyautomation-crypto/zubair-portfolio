@@ -81,7 +81,7 @@ const ICONS = {
  */
 const ServiceCard = ({ id, label, icon }) => {
   return (
-    <div className="service-card" role="button" tabIndex={0} aria-label={label}>
+    <div className="service-card" id={`service-${id}`} role="button" tabIndex={0} aria-label={label}>
       <span className="service-card-icon">{ICONS[icon]}</span>
       <span className="service-card-label">{label}</span>
     </div>

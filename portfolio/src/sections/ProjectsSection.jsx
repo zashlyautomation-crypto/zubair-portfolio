@@ -96,6 +96,7 @@ export const ProjectsSection = () => {
             href={PROJECTS_DATA[0].link}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View ZASH futuristic and interactive design project"
             className="ps-card__thumb-wrap"
           >
             <img
@@ -150,6 +151,7 @@ export const ProjectsSection = () => {
           href={PROJECTS_DATA[1].link}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="View E-commerce Engine project live — seamless shopping experience"
           className="ps-card ps-card--half"
         >
           <img
@@ -167,6 +169,7 @@ export const ProjectsSection = () => {
           href={PROJECTS_DATA[2].link}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="View Lexom Web project live — AI portfolio and intelligent design"
           className="ps-card ps-card--half"
         >
           <img

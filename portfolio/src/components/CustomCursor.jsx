@@ -14,15 +14,14 @@ import {
  * Disables entirely on touch devices.
  */
 const CustomCursor = () => {
-  // Disable on touch devices — no render at all
-  if (typeof window !== 'undefined' && 'ontouchstart' in window) {
-    return null
-  }
-
   const dotRef = useRef(null)
   const ringRef = useRef(null)
 
+  const isTouch = typeof window !== 'undefined' && 'ontouchstart' in window
+
   useEffect(() => {
+    // Disable on touch devices
+    if (isTouch) return
     // Also check at effect time
     if ('ontouchstart' in window) return
 
@@ -84,7 +83,9 @@ const CustomCursor = () => {
       document.removeEventListener('mouseover', onMouseOver)
       document.removeEventListener('mouseout', onMouseOut)
     }
-  }, [])
+  }, [isTouch])
+
+  if (isTouch) return null
 
   return (
     <>

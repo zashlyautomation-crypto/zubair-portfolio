@@ -30,7 +30,9 @@ const Navbar = () => {
   // ── Scroll detection ──────────────────────────────────────
   useEffect(() => {
     const handleScroll = (scrollVal) => {
-      setIsScrolled(scrollVal > NAVBAR_SCROLL_THRESHOLD)
+      const scrolled = scrollVal > NAVBAR_SCROLL_THRESHOLD
+      setIsScrolled(scrolled)
+      if (scrolled) setMenuOpen(false)
     }
 
     // Try Lenis first, fall back to window scroll
@@ -58,11 +60,6 @@ const Navbar = () => {
       }
     }
   }, [])
-
-  // Close drawer on scroll
-  useEffect(() => {
-    if (isScrolled) setMenuOpen(false)
-  }, [isScrolled])
 
   const toggleMenu = () => setMenuOpen((v) => !v)
   const closeMenu = () => setMenuOpen(false)
@@ -157,7 +154,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#/contact"
+              href="/contact"
               className="drawer-cta"
               onClick={(e) => { 
                 e.preventDefault()

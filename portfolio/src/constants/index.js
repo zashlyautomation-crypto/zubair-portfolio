@@ -177,7 +177,8 @@ export const ABOUT_LEFT_BLOCKS = [
     id: 'experience',
     heading: 'EXPERIENCE',
     items: [
-      'Independent projects for myself and\nclose collaborators',
+      'Freelance React JS & Web Developer',
+      'Independent projects for clients & collaborators',
     ],
   },
   {
@@ -191,7 +192,7 @@ export const ABOUT_RIGHT_BLOCKS = [
   {
     id: 'languages',
     heading: 'Computer LANGUAGES',
-    items: ['HTMl', 'CSS', 'JavaScript', 'React', '100s of Libraries'],
+    items: ['HTML', 'CSS', 'JavaScript', 'React JS', 'Three.js'],
   },
   {
     id: 'software',
@@ -254,7 +255,7 @@ export const PROJ_PAD_MOBILE = '0 12px'
 // ─── CONTACT PAGE ────────────────────────────────────────────────────────────
 
 export const CONTACT_DATA = {
-  name: 'Zabair',
+  name: 'Zubair',
   email: 'zashlycraft@gmail.com',
   emailNote: 'For professional correspondence, kindly reach out via email.',
   phone: '+923294264963',
@@ -267,7 +268,7 @@ export const CONTACT_DATA = {
   recentlyAdded: {
     label: 'RECENTLY ADDED',
     subLabel: 'PORTFOLIO:',
-    url: 'https://zashlyautomation-crypto.github.io/zubair-portfolio/',
+    url: 'https://zubairkaportfolio.netlify.app/',
   },
   credits: {
     date: '27 02 2024',

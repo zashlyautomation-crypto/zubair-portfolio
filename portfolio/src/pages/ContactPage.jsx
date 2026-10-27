@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CONTACT_DATA, FORMSPREE_ENDPOINT, CONTACT_STORAGE_KEY } from '@/constants'
+import { useSEO } from '@/hooks/useSEO'
 import '@/styles/contact.css'
 
 // ─── Helper: localStorage with try/catch ─────────────────────────────────
@@ -11,11 +13,11 @@ const getDraft = () => {
 }
 
 const saveDraft = (data) => {
-  try { localStorage.setItem(CONTACT_STORAGE_KEY, JSON.stringify(data)) } catch { }
+  try { localStorage.setItem(CONTACT_STORAGE_KEY, JSON.stringify(data)) } catch { /* ignore storage error */ }
 }
 
 const clearDraft = () => {
-  try { localStorage.removeItem(CONTACT_STORAGE_KEY) } catch { }
+  try { localStorage.removeItem(CONTACT_STORAGE_KEY) } catch { /* ignore storage error */ }
 }
 
 // ─── ContactForm component ────────────────────────────────────────────────
@@ -73,7 +75,7 @@ const ContactForm = ({ isOpen, onClose }) => {
 
       // Always parse JSON — Formspree returns JSON for all responses
       let result = {}
-      try { result = await res.json() } catch { }
+      try { result = await res.json() } catch { /* ignore parse error */ }
 
       if (res.ok) {
         // Formspree returns { ok: true } on success
@@ -88,7 +90,7 @@ const ContactForm = ({ isOpen, onClose }) => {
         setStatus('error')
         setErrMsg(msg)
       }
-    } catch (networkErr) {
+    } catch {
       setStatus('error')
       setErrMsg('Network error. Check your connection and try again.')
     }
@@ -191,11 +193,16 @@ const ContactForm = ({ isOpen, onClose }) => {
   )
 }
 
-import { useNavigate } from 'react-router-dom'
-
 export const ContactPage = () => {
   const [formOpen, setFormOpen] = useState(false)
   const navigate = useNavigate()
+
+  // Per-route SEO — updates title/description/canonical for /contact
+  useSEO({
+    title: 'Contact Zubair (ZASHLY) — Hire Freelance React JS Developer | Faisalabad',
+    description: 'Hire Zubair (ZASHLY / zashly craft), freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan. Email: zashlycraft@gmail.com',
+    canonical: 'https://zubairkaportfolio.netlify.app/contact',
+  })
 
   const handleBack = () => {
     navigate('/')

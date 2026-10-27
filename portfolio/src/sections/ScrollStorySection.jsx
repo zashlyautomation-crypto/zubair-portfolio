@@ -21,10 +21,22 @@ export const ScrollStorySection = () => {
   const currentFrameRef = useRef(0)
   const [storyProgress, setStoryProgress] = useState(0)
 
-  const { images, loaded, loadProgress } = useStoryFrames()
+  const { images, loaded } = useStoryFrames()
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
   const floatPos = isMobile ? FLOAT_POSITIONS.mobile : FLOAT_POSITIONS.desktop
+
+  const drawImageToCanvas = (canvas, img) => {
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    const { width: cw, height: ch } = canvas
+    const { naturalWidth: iw, naturalHeight: ih } = img
+    const scale = Math.max(cw / iw, ch / ih)
+    const x = (cw - iw * scale) / 2
+    const y = (ch - ih * scale) / 2
+    ctx.clearRect(0, 0, cw, ch)
+    ctx.drawImage(img, x, y, iw * scale, ih * scale)
+  }
 
   // ─── Cover-fit draw — same visual behaviour as CSS object-fit: cover ───
   const drawFrame = useCallback((index) => {
@@ -39,18 +51,6 @@ export const ScrollStorySection = () => {
     }
     drawImageToCanvas(canvas, img)
   }, [images])
-
-  const drawImageToCanvas = (canvas, img) => {
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-    const { width: cw, height: ch } = canvas
-    const { naturalWidth: iw, naturalHeight: ih } = img
-    const scale = Math.max(cw / iw, ch / ih)
-    const x = (cw - iw * scale) / 2
-    const y = (ch - ih * scale) / 2
-    ctx.clearRect(0, 0, cw, ch)
-    ctx.drawImage(img, x, y, iw * scale, ih * scale)
-  }
 
   // ─── rAF-guarded frame draw — never fires more than once per frame ───
   const safeDrawFrame = useCallback((index) => {

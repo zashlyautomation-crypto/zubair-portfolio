@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useSpring, useTransform } from 'framer-motion';
+import { motion, useSpring } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import '@/styles/footer.css';
 
@@ -40,7 +40,7 @@ const FooterSection = () => {
     }, [isAtBottom, bounceY]);
 
     const navigateLinks = [
-        { name: 'Home', href: '#home' },
+        { name: 'Home', href: '#hero' },
         { name: 'About', href: '#about' },
         { name: 'Projects', href: '#projects' },
         { name: 'Contact', href: '/contact', isRoute: true }
@@ -51,15 +51,24 @@ const FooterSection = () => {
             e.preventDefault();
             navigate(link.href);
             window.scrollTo(0, 0);
+        } else if (link.href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = link.href.slice(1);
+            const element = document.getElementById(targetId);
+            if (element) {
+                if (window.__lenis) {
+                    window.__lenis.scrollTo(element, { offset: 0, duration: 1.2 });
+                } else {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         }
-        // Anchor links are handled by browser/lenis (Navbar has separate logic but footer seems simple)
     };
 
     const connectLinks = [
-        { name: 'GitHub', href: 'https://github.com' },
-        { name: 'LinkedIn', href: 'https://linkedin.com' },
-        { name: 'Instagram', href: 'https://instagram.com' },
-        { name: 'yt', href: 'https://youtube.com' }
+        { name: 'GitHub', href: 'https://github.com/zashlyautomation-crypto/', aria: "Zubair's GitHub Profile" },
+        { name: 'Email', href: 'mailto:zashlycraft@gmail.com', aria: 'Email Zubair directly' },
+        { name: 'Contact', href: '/contact', isRoute: true, aria: 'Contact page' }
     ];
 
     return (
@@ -103,7 +112,13 @@ const FooterSection = () => {
                             <span className="footer-links-title">CONNECT</span>
                             <div className="footer-links-list">
                                 {connectLinks.map((link) => (
-                                    <a key={link.name} href={link.href} className="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <a 
+                                        key={link.name} 
+                                        href={link.href} 
+                                        className="footer-link" 
+                                        aria-label={link.aria}
+                                        {...(link.isRoute ? { onClick: (e) => handleNavClick(e, link) } : { target: "_blank", rel: "noopener noreferrer" })}
+                                    >
                                         {link.name}
                                     </a>
                                 ))}

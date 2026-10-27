@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "homepage": "https://zashlyautomation-crypto.github.io/zubair-portfolio/",
+  "homepage": "https://zubairkaportfolio.netlify.app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-static-routes.js",
+    "test:seo": "node scripts/test-seo.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

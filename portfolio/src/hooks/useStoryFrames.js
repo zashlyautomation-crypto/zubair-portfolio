@@ -7,18 +7,11 @@ const framePath = (index) =>
     import.meta.url
   ).href
 
-const PRIORITY_COUNT = 12    // first N frames load immediately before anything renders
-const BATCH_SIZE_NORMAL = 20 // frames loaded per batch on normal devices
-const BATCH_SIZE_LOW = 8     // frames loaded per batch on low-memory devices (< 4GB)
-
 export const useStoryFrames = () => {
   const images = useRef(new Array(TOTAL_FRAMES).fill(null))
   const [loaded, setLoaded] = useState(false)
   const [loadProgress, setLoadProgress] = useState(0)
   const loadedCount = useRef(0)
-  const isLowMemory = useRef(
-    typeof navigator !== 'undefined' && navigator.deviceMemory < 4
-  )
 
   const loadSingleFrame = useCallback((index) => {
     return new Promise((resolve) => {

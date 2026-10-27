@@ -14,6 +14,7 @@ const ConnectButton = () => {
   return (
     <motion.button
       className="connect-button"
+      aria-label="Connect with Zubair — Contact page"
       onClick={() => navigate('/contact')}
     >
       <span className="connect-label">CONNECT</span>

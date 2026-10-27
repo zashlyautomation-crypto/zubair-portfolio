@@ -9,14 +9,16 @@ import TechStackSection from '@/sections/TechStackSection'
 import VideoShowcaseSection from '@/sections/VideoShowcaseSection'
 import { AboutSection } from '@/sections/AboutSection'
 import { ProjectsSection } from '@/sections/ProjectsSection'
+import FAQSection from '@/sections/FAQSection'
 import FooterSection from '@/sections/FooterSection'
 import { ContactPage } from '@/pages/ContactPage'
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { SiteIntro } from '@/components/SiteIntro'
 import { ToastReminder } from '@/components/ToastReminder'
 import { INTRO_CONFIG } from '@/constants'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSEO } from '@/hooks/useSEO'
 
 import '@/styles/global.css'
 import '@/styles/typography.css'
@@ -44,6 +46,37 @@ const initWebGPU = async () => {
 
 const initCanvasFallback = () => {
   document.documentElement.dataset.webgpu = 'false'
+}
+
+/**
+ * HomePage — the "/" route.
+ * Applies homepage-specific SEO metadata and renders all home sections.
+ * The visually-hidden h1 provides a proper heading hierarchy for
+ * screen readers and search crawlers without affecting the visual design.
+ */
+const HomePage = () => {
+  useSEO({
+    title: 'Zubair (ZASHLY) — Freelance React JS Developer & UI/UX Designer | Faisalabad, Pakistan',
+    description: 'Zubair (ZASHLY / zashly craft) is a freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan. Specialist in React 19, Next.js, Three.js, and GSAP.',
+    canonical: 'https://zubairkaportfolio.netlify.app/',
+  })
+  return (
+    <div className="home-container">
+      {/* Visually-hidden h1 for SEO heading hierarchy — visible to crawlers and screen readers */}
+      <h1 className="sr-only">
+        Zubair (ZASHLY) — Freelance React JS Developer &amp; UI/UX Designer based in Faisalabad, Pakistan
+      </h1>
+      <HeroSection />
+      <WhyChooseMeSection />
+      <ScrollStorySection />
+      <TechStackSection />
+      <VideoShowcaseSection />
+      <AboutSection />
+      <ProjectsSection />
+      <FAQSection />
+      <FooterSection />
+    </div>
+  )
 }
 
 const App = () => {
@@ -111,18 +144,7 @@ const App = () => {
               <Routes>
                 <Route 
                   path="/" 
-                  element={
-                    <div className="home-container">
-                      <HeroSection />
-                      <WhyChooseMeSection />
-                      <ScrollStorySection />
-                      <TechStackSection />
-                      <VideoShowcaseSection />
-                      <AboutSection />
-                      <ProjectsSection />
-                      <FooterSection />
-                    </div>
-                  } 
+                  element={<HomePage />} 
                 />
                 <Route path="/contact" element={<ContactPage />} />
               </Routes>

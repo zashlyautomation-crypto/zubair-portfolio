@@ -65,7 +65,8 @@ export const ToastReminder = () => {
   // Hide toast when navigating to contact page
   useEffect(() => {
     if (isContactPage) {
-      hideToast()
+      const timer = setTimeout(() => hideToast(), 0)
+      return () => clearTimeout(timer)
     }
   }, [isContactPage, hideToast])
 

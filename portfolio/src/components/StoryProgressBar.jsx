@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { STORY_PROGRESS_DOTS } from '@/constants'
 
 const RING_RADIUS = 15

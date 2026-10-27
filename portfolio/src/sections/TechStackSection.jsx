@@ -120,7 +120,7 @@ export const TechStackSection = () => {
       const bubbles = gsap.utils.toArray('.tech-bubble')
 
       // Set initial scattered state
-      bubbles.forEach((el, i) => {
+      bubbles.forEach((el) => {
         gsap.set(el, {
           opacity: 0,
           scale: 0.45,

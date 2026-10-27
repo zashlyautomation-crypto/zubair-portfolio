@@ -1,0 +1,50 @@
+# ZASHLY — Zubair's Developer Portfolio
+
+> Zubair (ZASHLY / zashly craft) is a freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan, specializing in engineering high-performance web applications, cinematic 3D web experiences using Three.js, GSAP animations, and custom frontend solutions.
+
+## Identity & Canonical Links
+
+- **Name:** Zubair
+- **Brand Names:** ZASHLY, zashly craft, Zubair ZASHLY
+- **Role:** Freelance React JS Developer & UI/UX Designer
+- **Official Portfolio Website:** https://zubairkaportfolio.netlify.app/
+- **Contact Page:** https://zubairkaportfolio.netlify.app/contact
+- **Primary Contact Email:** zashlycraft@gmail.com
+- **Phone:** +923294264963
+- **GitHub:** https://github.com/zashlyautomation-crypto/
+- **Location:** Faisalabad, Punjab, Pakistan
+
+## Key Pages
+
+- [Homepage — Portfolio Overview & Case Studies](https://zubairkaportfolio.netlify.app/)
+- [Contact Page — Project Inquiries & Hiring](https://zubairkaportfolio.netlify.app/contact)
+
+## Core Capabilities & Services
+
+Zubair provides bespoke web development and frontend engineering services for clients in Faisalabad, Pakistan, and internationally:
+
+- **React Web Application Development** — React 19, hooks, state management (Redux Toolkit), component architectures, React Router.
+- **Interactive 3D & Creative Web Development** — Three.js canvas integration, WebGL/WebGPU shaders, smooth scrolling with Lenis, GSAP scroll-triggered timelines, Framer Motion.
+- **Headless E-commerce Frontend Development** — Modern, blazing-fast product catalogs, cart flows, checkout interfaces.
+- **Custom Web Application Engineering** — Responsive, accessible, mobile-first web applications built for speed and high conversion.
+- **UI/UX Design & Prototyping** — Clean aesthetic typography, dark mode, glassmorphism, micro-interactions, responsive Figma-to-code implementations.
+- **Full-Stack & API Integrations** — Node.js REST API endpoints, MongoDB data structures, secure form processing.
+
+## Technology Stack
+
+- **Frontend:** React 19, JavaScript (ES6+), TypeScript, Tailwind CSS v4, Next.js, Redux Toolkit, Vite
+- **Motion & 3D:** Three.js, GSAP (GreenSock), Framer Motion, Lenis Smooth Scroll, Spline 3D
+- **Backend & Tooling:** Node.js, Express, MongoDB, Git, GitHub, ESLint, Netlify
+
+## Featured Case Studies & Live Projects
+
+1. **ZASH** — Futuristic, interactive 3D web experience with cinematic UI and WebGL rendering.
+   - Live URL: https://zashlyautomation-crypto.github.io/ZASH/
+2. **E-Commerce Engine** — High-performance online shopping frontend demonstrating dynamic cart, product filtering, and checkout flow.
+   - Live URL: https://zash-lab-001.vercel.app/
+3. **Lexom Web** — Intelligent UI design system and portfolio interface with interactive components.
+   - Live URL: https://zashlyautomation-crypto.github.io/lexom-web/
+
+## Availability & Hiring
+
+Zubair is available for freelance contracts, full-time remote roles, and custom web development projects. Inquiries can be submitted directly through the contact page (https://zubairkaportfolio.netlify.app/contact) or via email to zashlycraft@gmail.com.

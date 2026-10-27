@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '@/components/Navbar'
 import ServiceCard from '@/components/ServiceCard'
 import { runHeroEntrance } from '@/animations/heroAnimations'
@@ -16,6 +17,7 @@ import '@/styles/hero.css'
  */
 const HeroSection = () => {
   const heroRef = useRef(null)
+  const navigate = useNavigate()
 
   // Fire entrance animations on mount with GSAP context cleanup
   useLayoutEffect(() => {
@@ -46,8 +48,8 @@ const HeroSection = () => {
           Code that speaks louder than words.
         </h2>
         <p className="tagline-body">
-          Crafting scalable, high-performance web applications with modern
-          technologies and a focus on user experience.
+          Freelance React JS developer &amp; UI/UX designer based in Faisalabad, Pakistan.
+          Crafting scalable, high-performance web applications with Three.js and modern technologies.
         </p>
       </div>
 
@@ -64,7 +66,11 @@ const HeroSection = () => {
       </div>
 
       {/* ── MOBILE CTA (hidden on desktop via CSS) ─────────── */}
-      <button className="mobile-cta" aria-label="Get in touch">
+      <button 
+        className="mobile-cta" 
+        aria-label="Get in touch"
+        onClick={() => navigate('/contact')}
+      >
         Get in touch
         <span className="mobile-cta-icon" aria-hidden="true">→</span>
       </button>
