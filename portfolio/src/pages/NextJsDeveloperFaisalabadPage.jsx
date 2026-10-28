@@ -5,9 +5,9 @@ import '@/styles/guides.css'
 
 export const NextJsDeveloperFaisalabadPage = () => {
   useSEO({
-    title: 'Hire Next.js Developer in Faisalabad | Next.js Performance Optimization Expert — Zubair (ZASHLY)',
+    title: 'Hire Next.js Developer Faisalabad | ZASHLY Optimization',
     description: 'Looking to hire a top Next.js developer in Faisalabad, Pakistan? Zubair (ZASHLY) specializes in Next.js 15, App Router, Core Web Vitals optimization, and high-converting web apps.',
-    canonical: 'https://zubairkaportfolio.netlify.app/hire-next-js-developer-faisalabad',
+    canonical: 'https://zubairkaportfolio.netlify.app/hire-next-js-developer-faisalabad/',
   })
 
   useEffect(() => {

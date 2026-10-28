@@ -16,14 +16,16 @@ const indexPath = path.join(distDir, 'index.html')
 const indexHtml = fs.readFileSync(indexPath, 'utf8')
 
 function createRouteHtml({ routePath, title, description, canonical, h1, bodyContent, extraSchema }) {
-  const targetDir = path.join(distDir, routePath)
+  // Ensure cross-platform directory creation (Windows \ vs Linux /)
+  const segments = routePath.split(/[/\\]/)
+  const targetDir = path.resolve(distDir, ...segments)
   if (!fs.existsSync(targetDir)) {
     fs.mkdirSync(targetDir, { recursive: true })
   }
 
   let routeHtml = indexHtml
 
-  // Update Title
+  // Update Title (strictly <60 chars for Semrush & SERP display)
   routeHtml = routeHtml.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
 
   // Update Meta Description
@@ -32,7 +34,7 @@ function createRouteHtml({ routePath, title, description, canonical, h1, bodyCon
     `<meta name="description" content="${description}" />`
   )
 
-  // Update Canonical
+  // Update Canonical (with trailing slash for Netlify 200 OK)
   routeHtml = routeHtml.replace(
     /<link\s+rel="canonical"\s+href=".*?"\s*\/?>/,
     `<link rel="canonical" href="${canonical}" />`
@@ -85,15 +87,15 @@ function createRouteHtml({ routePath, title, description, canonical, h1, bodyCon
   routeHtml = routeHtml.replace(/<div id="root">[\s\S]*?<\/div>\s*<script/m, `${semanticRoot}\n    <script`)
 
   fs.writeFileSync(path.join(targetDir, 'index.html'), routeHtml, 'utf8')
-  console.log(`[PASS] Generated dist/${routePath}/index.html with pre-rendered copy & metadata`)
+  console.log(`[PASS] Generated dist/${segments.join('/')}/index.html with pre-rendered copy & metadata`)
 }
 
 // ── 1. Contact Route ────────────────────────────────────────────────────────
 createRouteHtml({
   routePath: 'contact',
-  title: 'Contact Zubair (ZASHLY) — Hire Freelance React JS Developer | Faisalabad',
+  title: 'Contact Zubair (ZASHLY) — Hire React Developer',
   description: 'Hire Zubair (ZASHLY / zashly craft), freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan. Email: zashlycraft@gmail.com',
-  canonical: 'https://zubairkaportfolio.netlify.app/contact',
+  canonical: 'https://zubairkaportfolio.netlify.app/contact/',
   h1: "Let's Connect — Hire Zubair (ZASHLY)",
   bodyContent: `
     <p>Freelance React JS Developer &amp; UI/UX Designer based in Faisalabad, Punjab, Pakistan.</p>
@@ -133,9 +135,9 @@ createRouteHtml({
 // ── 2. Dedicated Next.js Landing Page ──────────────────────────────────────
 createRouteHtml({
   routePath: 'hire-next-js-developer-faisalabad',
-  title: 'Hire Next.js Developer in Faisalabad | Next.js Performance Optimization Expert — Zubair (ZASHLY)',
+  title: 'Hire Next.js Developer Faisalabad | ZASHLY Optimization',
   description: 'Looking to hire a top Next.js developer in Faisalabad, Pakistan? Zubair (ZASHLY) specializes in Next.js 15, App Router, Core Web Vitals optimization, and high-converting web apps.',
-  canonical: 'https://zubairkaportfolio.netlify.app/hire-next-js-developer-faisalabad',
+  canonical: 'https://zubairkaportfolio.netlify.app/hire-next-js-developer-faisalabad/',
   h1: 'Hire Next.js Developer in Faisalabad &middot; Next.js Performance Optimization Expert',
   bodyContent: `
     <p>Looking to hire a vetted Next.js developer in Faisalabad, Punjab, Pakistan? Zubair (ZASHLY) engineers high-performance web applications with Next.js 15, App Router, React Server Components (RSC), and sub-second Core Web Vitals.</p>
@@ -148,7 +150,7 @@ createRouteHtml({
     </ul>
     <h2>Serving Faisalabad Businesses &amp; Global Remote Teams</h2>
     <p>Zubair provides dedicated frontend engineering for software houses and startups across Faisalabad and Pakistan, alongside overseas founders in the US, UK, and Europe.</p>
-    <p><a href="https://zubairkaportfolio.netlify.app/contact" style="background:#f7931e;color:#000;padding:10px 24px;border-radius:9999px;font-weight:700;text-decoration:none;">Contact Zubair for Next.js Projects &rarr;</a></p>
+    <p><a href="https://zubairkaportfolio.netlify.app/contact/" style="background:#f7931e;color:#000;padding:10px 24px;border-radius:9999px;font-weight:700;text-decoration:none;">Contact Zubair for Next.js Projects &rarr;</a></p>
   `,
   extraSchema: {
     '@context': 'https://schema.org',
@@ -167,10 +169,10 @@ createRouteHtml({
 
 // ── 3. React 19 Technical Guide ───────────────────────────────────────────
 createRouteHtml({
-  routePath: path.join('guides', 'react-19-server-actions-performance'),
-  title: 'How React 19 Server Actions Improve Real-Time Performance | Technical Guide by Zubair (ZASHLY)',
+  routePath: 'guides/react-19-server-actions-performance',
+  title: 'React 19 Server Actions & Real-Time Performance | ZASHLY',
   description: 'A deep-dive technical guide on how React 19 Server Actions, useOptimistic, and streaming SSR dramatically improve real-time performance and reduce INP in modern web apps.',
-  canonical: 'https://zubairkaportfolio.netlify.app/guides/react-19-server-actions-performance',
+  canonical: 'https://zubairkaportfolio.netlify.app/guides/react-19-server-actions-performance/',
   h1: 'How React 19 Features Like Server Actions Improve Real-Time Performance in Web Applications',
   bodyContent: `
     <p>An in-depth technical analysis authored by Zubair (ZASHLY), freelance React JS developer from Faisalabad, Pakistan. Learn how React 19 Server Actions, zero-bundle RPCs, and the useOptimistic hook transform web performance.</p>
@@ -180,7 +182,7 @@ createRouteHtml({
     <p>React 19 Server Actions with the 'use server' directive move database operations and validation schemas entirely to the server, keeping browser bundles under 70kB.</p>
     <h2>3. 0ms Perceived Latency with useOptimistic</h2>
     <p>Optimistic state mutations allow the UI to paint immediately at 60 FPS while the server executes in the background, slashing INP to sub-35ms.</p>
-    <p><a href="https://zubairkaportfolio.netlify.app/contact" style="background:#f7931e;color:#000;padding:10px 24px;border-radius:9999px;font-weight:700;text-decoration:none;">Hire Zubair for React 19 Architecture &rarr;</a></p>
+    <p><a href="https://zubairkaportfolio.netlify.app/contact/" style="background:#f7931e;color:#000;padding:10px 24px;border-radius:9999px;font-weight:700;text-decoration:none;">Hire Zubair for React 19 Architecture &rarr;</a></p>
   `,
   extraSchema: {
     '@context': 'https://schema.org',
@@ -196,10 +198,10 @@ createRouteHtml({
 
 // ── 4. Comparison Guide ───────────────────────────────────────────────────
 createRouteHtml({
-  routePath: path.join('comparisons', 'threejs-vs-spline-performance'),
-  title: 'Custom Three.js & GSAP vs Spline 3D & Web Builders | Performance & SEO Analysis by Zubair (ZASHLY)',
+  routePath: 'comparisons/threejs-vs-spline-performance',
+  title: 'Three.js & GSAP vs Spline 3D Performance | ZASHLY',
   description: 'An architectural benchmark comparing custom Three.js and GSAP against Spline 3D and generic web builders for web performance, SEO crawlability, and 60fps animations.',
-  canonical: 'https://zubairkaportfolio.netlify.app/comparisons/threejs-vs-spline-performance',
+  canonical: 'https://zubairkaportfolio.netlify.app/comparisons/threejs-vs-spline-performance/',
   h1: 'Custom Three.js &amp; GSAP vs. Spline 3D &amp; Generic Web Builders',
   bodyContent: `
     <p>An architectural benchmark by Zubair (ZASHLY) analyzing payload sizes, GPU memory consumption, and SEO discoverability between custom Three.js code and no-code 3D builders.</p>
@@ -207,7 +209,7 @@ createRouteHtml({
     <p>Custom Three.js bundles only necessary shaders and geometries, whereas Spline ships an entire runtime engine that triggers mobile thermal throttling.</p>
     <h2>2. Eliminating the SEO Render Gap</h2>
     <p>Custom architectures decouple WebGL canvas rendering from semantic DOM text, allowing search engines and AI answer engines to read 100% of your copy instantly.</p>
-    <p><a href="https://zubairkaportfolio.netlify.app/contact" style="background:#f7931e;color:#000;padding:10px 24px;border-radius:9999px;font-weight:700;text-decoration:none;">Discuss a Custom 3D Project with Zubair &rarr;</a></p>
+    <p><a href="https://zubairkaportfolio.netlify.app/contact/" style="background:#f7931e;color:#000;padding:10px 24px;border-radius:9999px;font-weight:700;text-decoration:none;">Discuss a Custom 3D Project with Zubair &rarr;</a></p>
   `,
   extraSchema: {
     '@context': 'https://schema.org',

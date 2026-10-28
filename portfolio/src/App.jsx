@@ -59,7 +59,7 @@ const initCanvasFallback = () => {
  */
 const HomePage = () => {
   useSEO({
-    title: 'Zubair (ZASHLY) — Freelance React JS Developer & UI/UX Designer | Faisalabad, Pakistan',
+    title: 'Zubair (ZASHLY) — React JS Developer | Faisalabad, PK',
     description: 'Zubair (ZASHLY / zashly craft) is a freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan. Specialist in React 19, Next.js, Three.js, and GSAP.',
     canonical: 'https://zubairkaportfolio.netlify.app/',
   })

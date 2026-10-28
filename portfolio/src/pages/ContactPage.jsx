@@ -199,9 +199,9 @@ export const ContactPage = () => {
 
   // Per-route SEO — updates title/description/canonical for /contact
   useSEO({
-    title: 'Contact Zubair (ZASHLY) — Hire Freelance React JS Developer | Faisalabad',
+    title: 'Contact Zubair (ZASHLY) — Hire React Developer',
     description: 'Hire Zubair (ZASHLY / zashly craft), freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan. Email: zashlycraft@gmail.com',
-    canonical: 'https://zubairkaportfolio.netlify.app/contact',
+    canonical: 'https://zubairkaportfolio.netlify.app/contact/',
   })
 
   const contactFaqSchema = {

@@ -5,9 +5,9 @@ import '@/styles/guides.css'
 
 export const ComparisonGuidePage = () => {
   useSEO({
-    title: 'Custom Three.js & GSAP vs Spline 3D & Web Builders | Performance & SEO Analysis by Zubair (ZASHLY)',
+    title: 'Three.js & GSAP vs Spline 3D Performance | ZASHLY',
     description: 'An architectural benchmark comparing custom Three.js and GSAP against Spline 3D and generic web builders for web performance, SEO crawlability, and 60fps animations.',
-    canonical: 'https://zubairkaportfolio.netlify.app/comparisons/threejs-vs-spline-performance',
+    canonical: 'https://zubairkaportfolio.netlify.app/comparisons/threejs-vs-spline-performance/',
   })
 
   useEffect(() => {

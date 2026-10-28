@@ -5,9 +5,9 @@ import '@/styles/guides.css'
 
 export const React19ServerActionsGuide = () => {
   useSEO({
-    title: 'How React 19 Server Actions Improve Real-Time Performance | Technical Guide by Zubair (ZASHLY)',
+    title: 'React 19 Server Actions & Real-Time Performance | ZASHLY',
     description: 'A deep-dive technical guide on how React 19 Server Actions, useOptimistic, and streaming SSR dramatically improve real-time performance and reduce INP in modern web apps.',
-    canonical: 'https://zubairkaportfolio.netlify.app/guides/react-19-server-actions-performance',
+    canonical: 'https://zubairkaportfolio.netlify.app/guides/react-19-server-actions-performance/',
   })
 
   useEffect(() => {
