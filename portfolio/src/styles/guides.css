@@ -1,0 +1,300 @@
+/* ─── Guides, Comparison & Dedicated Landing Pages Styling ─────────── */
+
+.guide-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 100px 24px 60px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.guide-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ─── Back Nav ──────────────────────────────────────────────── */
+.guide-back-nav {
+  margin-bottom: 32px;
+}
+
+.guide-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f7931e;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(247, 147, 30, 0.08);
+  border: 1px solid rgba(247, 147, 30, 0.25);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.guide-back-btn:hover {
+  background: rgba(247, 147, 30, 0.2);
+  transform: translateX(-4px);
+}
+
+/* ─── Header & Metadata ─────────────────────────────────────── */
+.guide-header {
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 36px;
+}
+
+.guide-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f7931e;
+  background: rgba(247, 147, 30, 0.12);
+  border: 1px solid rgba(247, 147, 30, 0.3);
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.guide-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.guide-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.guide-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.guide-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.guide-meta-item strong {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ─── Content Body ──────────────────────────────────────────── */
+.guide-content {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.guide-content h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 48px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.guide-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffaa44;
+  margin: 32px 0 14px;
+}
+
+.guide-content p {
+  margin-bottom: 20px;
+}
+
+.guide-content ul,
+.guide-content ol {
+  margin: 0 0 24px 24px;
+}
+
+.guide-content li {
+  margin-bottom: 10px;
+}
+
+/* ─── Highlights & Callouts ─────────────────────────────────── */
+.guide-callout {
+  background: rgba(247, 147, 30, 0.06);
+  border-left: 4px solid #f7931e;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 28px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.guide-callout strong {
+  color: #f7931e;
+}
+
+/* ─── Code Snippets ─────────────────────────────────────────── */
+.guide-code-block {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 28px 0;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #e6e6e6;
+}
+
+.guide-code-block pre {
+  margin: 0;
+}
+
+/* ─── Comparison & Performance Tables ───────────────────────── */
+.guide-table-wrap {
+  overflow-x: auto;
+  margin: 32px 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.guide-table th {
+  background: rgba(247, 147, 30, 0.1);
+  color: #f7931e;
+  padding: 14px 18px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.guide-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.guide-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── Metric Cards Grid ─────────────────────────────────────── */
+.guide-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+
+.guide-metric-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.25s ease;
+}
+
+.guide-metric-card:hover {
+  border-color: rgba(247, 147, 30, 0.4);
+}
+
+.guide-metric-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f7931e;
+  margin-bottom: 8px;
+}
+
+.guide-metric-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Guide FAQ Accordion ───────────────────────────────────── */
+.guide-faq-section {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guide-faq-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  padding: 20px 24px;
+}
+
+.guide-faq-question {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffaa44;
+  margin-bottom: 10px;
+}
+
+.guide-faq-answer {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+/* ─── Call to Action Box ────────────────────────────────────── */
+.guide-cta-card {
+  background: linear-gradient(135deg, rgba(247, 147, 30, 0.12) 0%, rgba(10, 10, 10, 0.9) 100%);
+  border: 1px solid rgba(247, 147, 30, 0.35);
+  border-radius: 16px;
+  padding: 40px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.guide-cta-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.guide-cta-text {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.guide-cta-btn {
+  display: inline-block;
+  background: #f7931e;
+  color: #000000;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.guide-cta-btn:hover {
+  background: #ffaa44;
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(247, 147, 30, 0.35);
+}

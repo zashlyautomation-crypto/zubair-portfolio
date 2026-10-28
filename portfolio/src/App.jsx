@@ -12,6 +12,9 @@ import { ProjectsSection } from '@/sections/ProjectsSection'
 import FAQSection from '@/sections/FAQSection'
 import FooterSection from '@/sections/FooterSection'
 import { ContactPage } from '@/pages/ContactPage'
+import { React19ServerActionsGuide } from '@/pages/React19ServerActionsGuide'
+import { NextJsDeveloperFaisalabadPage } from '@/pages/NextJsDeveloperFaisalabadPage'
+import { ComparisonGuidePage } from '@/pages/ComparisonGuidePage'
 import { useState, useCallback } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { SiteIntro } from '@/components/SiteIntro'
@@ -147,6 +150,18 @@ const App = () => {
                   element={<HomePage />} 
                 />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route 
+                  path="/guides/react-19-server-actions-performance" 
+                  element={<React19ServerActionsGuide />} 
+                />
+                <Route 
+                  path="/hire-next-js-developer-faisalabad" 
+                  element={<NextJsDeveloperFaisalabadPage />} 
+                />
+                <Route 
+                  path="/comparisons/threejs-vs-spline-performance" 
+                  element={<ComparisonGuidePage />} 
+                />
               </Routes>
             </motion.div>
           )}

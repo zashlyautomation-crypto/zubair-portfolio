@@ -204,12 +204,55 @@ export const ContactPage = () => {
     canonical: 'https://zubairkaportfolio.netlify.app/contact',
   })
 
+  const contactFaqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': 'How can I hire Zubair for a web development project?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'You can click the Name cell to open the direct message form on this page or email directly at zashlycraft@gmail.com with your project brief and timeline.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'What information should I include in my project inquiry?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Please specify your target platform, desired technologies (React, Next.js, Three.js), scope of work, timeline, and estimated budget.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Do you work with international clients outside Pakistan?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Yes. Zubair collaborates with founders, design studios, and engineering teams across the United States, United Kingdom, Europe, and UAE on remote contracts.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'What is your response time for project inquiries?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'All inquiries are reviewed within 24 hours with an introductory technical response or call availability.'
+        }
+      }
+    ]
+  }
+
   const handleBack = () => {
     navigate('/')
   }
 
   return (
     <div className="cp-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactFaqSchema) }}
+      />
       <div className="cp-inner">
 
         {/* Back arrow */}
@@ -290,6 +333,21 @@ export const ContactPage = () => {
               </svg>
             </div>
             <p className="cp-cell-primary">{CONTACT_DATA.location}</p>
+          </div>
+        </div>
+
+        {/* Project Inquiry FAQ Block */}
+        <div className="cp-faq-wrap" style={{ marginTop: '48px', marginBottom: '40px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px' }}>
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f7931e', marginBottom: '24px' }}>
+            Frequently Asked Questions — Hiring &amp; Collaboration
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            {contactFaqSchema.mainEntity.map((item, idx) => (
+              <div key={idx} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '20px' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '10px' }}>{item.name}</h3>
+                <p style={{ fontSize: '0.92rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, margin: 0 }}>{item.acceptedAnswer.text}</p>
+              </div>
+            ))}
           </div>
         </div>
 

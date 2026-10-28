@@ -1,12 +1,12 @@
 # ZASHLY — Zubair's Developer Portfolio
 
-> Zubair (ZASHLY / zashly craft) is a freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan, specializing in engineering high-performance web applications, cinematic 3D web experiences using Three.js, GSAP animations, and custom frontend solutions.
+> Zubair (ZASHLY / zashly craft) is a freelance React JS developer and UI/UX designer based in Faisalabad, Pakistan, specializing in engineering high-performance web applications, React 19 Server Actions, Next.js performance optimization, and cinematic 3D web experiences using Three.js and GSAP.
 
 ## Identity & Canonical Links
 
 - **Name:** Zubair
 - **Brand Names:** ZASHLY, zashly craft, Zubair ZASHLY
-- **Role:** Freelance React JS Developer & UI/UX Designer
+- **Role:** Freelance React JS Developer, Next.js Optimization Specialist & UI/UX Designer
 - **Official Portfolio Website:** https://zubairkaportfolio.netlify.app/
 - **Contact Page:** https://zubairkaportfolio.netlify.app/contact
 - **Primary Contact Email:** zashlycraft@gmail.com
@@ -14,25 +14,32 @@
 - **GitHub:** https://github.com/zashlyautomation-crypto/
 - **Location:** Faisalabad, Punjab, Pakistan
 
-## Key Pages
+## Key Pages & Money Landing Pages
 
 - [Homepage — Portfolio Overview & Case Studies](https://zubairkaportfolio.netlify.app/)
+- [Hire Next.js Developer in Faisalabad — Dedicated Performance Services](https://zubairkaportfolio.netlify.app/hire-next-js-developer-faisalabad)
 - [Contact Page — Project Inquiries & Hiring](https://zubairkaportfolio.netlify.app/contact)
+
+## Authoritative Technical Guides & Benchmarks
+
+- [Technical Guide: How React 19 Server Actions Improve Real-Time Performance](https://zubairkaportfolio.netlify.app/guides/react-19-server-actions-performance)
+  - Covers zero-bundle RPCs, useOptimistic state management, streaming SSR, and INP reduction to sub-35ms.
+- [Benchmark: Custom Three.js & GSAP vs Spline 3D & Generic Web Builders](https://zubairkaportfolio.netlify.app/comparisons/threejs-vs-spline-performance)
+  - Analysis of bundle payloads (300kB vs 2.5MB), 60 FPS mobile rendering, and decoupling WebGL from semantic DOM text for 100% crawlability.
 
 ## Core Capabilities & Services
 
 Zubair provides bespoke web development and frontend engineering services for clients in Faisalabad, Pakistan, and internationally:
 
-- **React Web Application Development** — React 19, hooks, state management (Redux Toolkit), component architectures, React Router.
+- **React & Next.js Web Application Development** — React 19, Next.js 15 App Router, Server Actions, hooks, Redux Toolkit, React Router.
+- **Next.js Performance Optimization** — Core Web Vitals remediation (LCP, INP, CLS), edge caching, ISR, and image/font pipelines.
 - **Interactive 3D & Creative Web Development** — Three.js canvas integration, WebGL/WebGPU shaders, smooth scrolling with Lenis, GSAP scroll-triggered timelines, Framer Motion.
 - **Headless E-commerce Frontend Development** — Modern, blazing-fast product catalogs, cart flows, checkout interfaces.
-- **Custom Web Application Engineering** — Responsive, accessible, mobile-first web applications built for speed and high conversion.
 - **UI/UX Design & Prototyping** — Clean aesthetic typography, dark mode, glassmorphism, micro-interactions, responsive Figma-to-code implementations.
-- **Full-Stack & API Integrations** — Node.js REST API endpoints, MongoDB data structures, secure form processing.
 
 ## Technology Stack
 
-- **Frontend:** React 19, JavaScript (ES6+), TypeScript, Tailwind CSS v4, Next.js, Redux Toolkit, Vite
+- **Frontend:** React 19, JavaScript (ES6+), TypeScript, Tailwind CSS v4, Next.js 15, Redux Toolkit, Vite
 - **Motion & 3D:** Three.js, GSAP (GreenSock), Framer Motion, Lenis Smooth Scroll, Spline 3D
 - **Backend & Tooling:** Node.js, Express, MongoDB, Git, GitHub, ESLint, Netlify
 
