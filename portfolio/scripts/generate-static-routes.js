@@ -65,6 +65,12 @@ contactHtml = contactHtml.replace(
   '<meta name="twitter:description" content="Get in touch with Zubair (ZASHLY), a freelance React developer and UI/UX designer from Faisalabad, Pakistan." />'
 )
 
+// Update BreadcrumbList schema for contact page
+contactHtml = contactHtml.replace(
+  /"name":\s*"Home",\s*"item":\s*"https:\/\/zubairkaportfolio\.netlify\.app\/"\s*\}\s*\]/,
+  '"name": "Home", "item": "https://zubairkaportfolio.netlify.app/" }, { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://zubairkaportfolio.netlify.app/contact" } ]'
+)
+
 // Pre-render semantic fallback inside #root for crawlers that don't execute JS
 const contactFallback = `
     <div id="root">
